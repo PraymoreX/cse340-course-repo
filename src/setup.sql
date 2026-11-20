@@ -118,3 +118,52 @@ VALUES
 (3, 'Community Health Awareness',
  'Organizing health education and awareness campaigns.',
  'Sunyani', '2027-02-15');
+
+ CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+INSERT INTO category (name)
+VALUES
+    ('Construction'),
+    ('Healthcare'),
+    ('Education'),
+    ('Community Service');
+
+CREATE TABLE project_category (
+    project_id INTEGER NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    PRIMARY KEY (project_id, category_id),
+
+    FOREIGN KEY (project_id)
+        REFERENCES project(project_id),
+
+    FOREIGN KEY (category_id)
+        REFERENCES category(category_id)
+);
+
+-- Insert project category relationships
+INSERT INTO project_category (project_id, category_id)
+VALUES
+-- BrightFuture Builders
+(1, 1), (1, 3),
+(2, 2),
+(3, 1),
+(4, 1), (4, 3),
+(5, 2),
+
+-- GreenHarvest Growers
+(6, 3), (6, 4),
+(7, 3),
+(8, 4),
+(9, 3),
+(10, 4),
+
+-- UnityServe Volunteers
+(11, 4),
+(12, 4),
+(13, 2), (13, 4),
+(14, 3), (14, 4),
+(15, 2), (15, 4);
