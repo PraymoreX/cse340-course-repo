@@ -2,7 +2,7 @@ import express from 'express';
 
 // Import controller functions
 import { showHomePage } from './controllers/index.js';
-import { showOrganizationsPage } from './controllers/organizations.js';
+import {showOrganizationsPage, showOrganizationDetailsPage} from './controllers/organizations.js';
 import { showProjectsPage } from './controllers/projects.js';
 import { showCategoriesPage } from './controllers/categories.js';
 import { testErrorPage } from './controllers/errors.js';
@@ -13,6 +13,9 @@ const router = express.Router();
 // Define application routes
 router.get('/', showHomePage);
 router.get('/organizations', showOrganizationsPage);
+// Route for organization details page
+router.get('/organization/:id', showOrganizationDetailsPage);
+
 router.get('/projects', showProjectsPage);
 router.get('/categories', showCategoriesPage);
 
