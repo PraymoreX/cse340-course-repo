@@ -18,6 +18,19 @@
                 <%= projectDetails.organization_name %>
             </a>
         </p>
+        <p><strong>Categories:</strong></p>
+
+        <% if (categories.length > 0) { %>
+            <div class="category-tags">
+                <% categories.forEach(category => { %>
+                    <a href="/category/<%= category.category_id %>">
+                        <%= category.name %>
+                    </a>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No categories assigned to this project.</p>
+        <% } %>
     <% } else { %>
         <h2>Project Not Found</h2>
         <p>The service project you requested does not exist.</p>

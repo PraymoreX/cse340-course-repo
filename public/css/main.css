@@ -228,3 +228,38 @@ main > h1 + h2 + p {
     object-fit: contain;
     margin: 0 auto 20px;
 }
+
+
+/* Category Tags */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 15px 0 25px;
+}
+
+.category-tags a {
+    display: inline-block;
+    background-color: #e0f7f6;
+    color: #006b70;
+    padding: 7px 16px;
+    border: 1px solid #b5e8e5;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.category-tags a:hover {
+    background-color: #007f86;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.category-tags a:focus-visible {
+    outline: 3px solid #001f4d;
+    outline-offset: 3px;
+}
